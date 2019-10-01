@@ -1,0 +1,41 @@
+/* Photos/Create */
+#page-photos-create .image {
+    position: relative;
+}
+#page-photos-create .image-preview img {
+    max-width: 100%;
+}
+#page-photos-create .image .controls {
+    margin-left: 10px;
+}
+#page-photos-create .image.has-image .controls {
+    position: absolute;
+    bottom: 10px;
+}
+/* Photos/Edit */
+#page-photos-edit .image {
+    position: relative;
+}
+#page-photos-edit .image-preview img {
+    max-width: 100%;
+}
+#page-photos-edit .image .controls {
+    margin-left: 10px;
+}
+#page-photos-edit .image.has-image .controls {
+    position: absolute;
+    bottom: 10px;
+}
+/* Photos/Category */
+#page-photos-category .photo {
+    position: relative;
+}
+#page-photos-category .photo a[data-action="remove"] {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+#page-photos-category .photo:hover > a[data-action="remove"]{
+    display: block;
+}
