@@ -48,7 +48,7 @@ class PhotosController extends Controller
 
         $uploadedImage = \Image::make('upload/temporary/' . $request->get('temporary-image'));
         $uploadedImage->save('upload/photos/f/' . $filename);
-        $uploadedImage->resize(400, null, function ($constraint) {
+        $uploadedImage->resize(520, null, function ($constraint) {
             $constraint->aspectRatio();
             $constraint->upsize();
         })->save('upload/photos/s/' . $filename);
