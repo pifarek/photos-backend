@@ -16,6 +16,7 @@ class Photos extends Migration
         Schema::create('photos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('category_id')->nullable()->default(null);
+            $table->unsignedTinyInteger('is_cover')->default(0);
             $table->string('filename')->nullable();
             $table->string('exif_make')->nullable();
             $table->string('exif_model')->nullable();
@@ -25,6 +26,8 @@ class Photos extends Migration
             $table->string('exif_lat')->nullable();
             $table->string('exif_lng')->nullable();
             $table->timestamps();
+
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 
