@@ -8,7 +8,7 @@
             <div class="row">
                 @foreach($categories as $category)
                     <div class="col-md-4 mb-4">
-                        <a href="{{ route('photos.index', ['category_id' => $category->id]) }}" class="text-dark text-decoration-none">
+                        <a href="{{ route('photos.category', $category->id) }}" class="text-dark text-decoration-none">
                             <div class="card">
                                 @if($category->cover())
                                 <img src="{{ url('upload/photos/s/' . $category->cover()->filename) }}" class="card-img-top" alt="{{ $category->name }}">

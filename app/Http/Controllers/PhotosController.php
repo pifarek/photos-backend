@@ -9,24 +9,26 @@ use Illuminate\Support\Facades\Storage;
 
 class PhotosController extends Controller
 {
-    public function index(Request $request) {
-        $category_id = $request->get('category_id');
+    public function index()
+    {
+        // Get the categories
+        $categories = Category::orderBy('created_at', 'desc')->get();
+
+        return view('photos.index', ['categories' => $categories]);
+    }
+
+    /**
+     * Display photos inside category
+     * @param int $category_id
+     */
+    public function category(int $category_id)
+    {
         $category = Category::find($category_id);
-        if(!$category && $category_id) {
+        if(!$category) {
             return redirect()->route('photos.index');
         }
 
-        if($category) {
-
-
-            return view('photos.category', ['category' => $category]);
-        } else {
-            $categories = Category::orderBy('created_at', 'desc')->get();
-
-            return view('photos.index', ['categories' => $categories]);
-        }
-
-
+        return view('photos.category', ['category' => $category]);
     }
 
     public function create(Request $request)
@@ -152,6 +154,24 @@ class PhotosController extends Controller
         }
 
         $photo->delete();
+
+        return response()->json(['status' => 'ok']);
+    }
+
+    /**
+     * @param int $photo_id photo id
+     */
+    public function cover(int $photo_id)
+    {
+        $photo = Photo::find($photo_id);
+        if($photo) {
+            $category_id = $photo->category_id;
+
+            Photo::where('category_id', $category_id)->update(['is_cover' => false]);
+
+            $photo->is_cover = true;
+            $photo->save();
+        }
 
         return response()->json(['status' => 'ok']);
     }

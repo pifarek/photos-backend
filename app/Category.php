@@ -10,7 +10,7 @@ class Category extends Model
 
     public function cover()
     {
-        return Photo::where('category_id', $this->id)->orderBy('created_at', 'desc')->first();
+        return Photo::where('category_id', $this->id)->orderBy('is_cover', 'desc')->orderBy('created_at', 'desc')->first();
     }
 
     public function photos()

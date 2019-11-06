@@ -18,7 +18,6 @@
             }
         });
     });
-
 })(jQuery);
 
 // Photo/Create
@@ -111,6 +110,20 @@
         }
     }
 
+    // Make photo default cover for category
+    $('#page-photos-category a[data-action="cover"]').click(function(){
+        var photo_id = $(this).parent().attr('data-id');
+
+        $.getJSON(settings.base_href + '/photos/json/cover/' + photo_id,function(response){
+            if(response.status === 'ok') {
+                window.location.reload();
+            }
+        });
+
+        return false;
+    });
+
+    // Remove selected photo
     $('#page-photos-category a[data-action="remove"]').click(function(){
         var $photoContainer = $(this).closest('.photo-container');
         var photo_id = $(this).parent().attr('data-id');

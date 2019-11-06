@@ -30,12 +30,21 @@
 #page-photos-category .photo {
     position: relative;
 }
+#page-photos-category .photo a[data-action="cover"] {
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
 #page-photos-category .photo a[data-action="remove"] {
     display: none;
     position: absolute;
     top: 10px;
     right: 10px;
 }
-#page-photos-category .photo:hover > a[data-action="remove"]{
+#page-photos-category .photo:hover > a[data-action="cover"] {
+    display: block;
+}
+#page-photos-category .photo:hover > a[data-action="remove"] {
     display: block;
 }

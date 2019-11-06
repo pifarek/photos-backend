@@ -26,7 +26,10 @@
                                 @endif
                             </a>
 
-                            <a href="#" class="btn btn-sm btn-danger" data-action="remove">Remove</a>
+                            @if(!$photo->is_cover)
+                            <a href="#" class="btn btn-sm btn-primary" data-action="cover"><i class="fa fa-image"></i> Make it cover</a>
+                            @endif
+                            <a href="#" class="btn btn-sm btn-danger" data-action="remove"><i class="fa fa-trash"></i> Remove</a>
                         </div>
                     </div>
                 @endforeach
