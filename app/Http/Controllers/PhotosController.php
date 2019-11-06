@@ -12,7 +12,7 @@ class PhotosController extends Controller
     public function index()
     {
         // Get the categories
-        $categories = Category::orderBy('created_at', 'desc')->get();
+        $categories = Category::orderBy('date', 'desc')->get();
 
         return view('photos.index', ['categories' => $categories]);
     }
