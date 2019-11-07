@@ -79,7 +79,11 @@ class ApiController extends Controller
 
     public function random()
     {
-        $photo = Photo::inRandomOrder()->limit(1)->first();
+        $photo = Photo::inRandomOrder()->first();
+
+        if(!$photo) {
+            return response()->json(['data' => '']);
+        }
 
         return new PhotoResource($photo);
     }
