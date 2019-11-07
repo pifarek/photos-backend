@@ -29,7 +29,11 @@
                             <input type="text" name="name" class="form-control" id="category-name" placeholder="Category Name" value="{{ old('name', $category->name) }}">
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-success" type="submit">Add Category</button>
+                            <label for="category-date">Date</label>
+                            <input type="text" name="date" class="form-control datepicker" id="category-date" placeholder="Category Date" value="{{ old('date', $category->date? date('d/m/Y', strtotime($category->date)) : '') }}">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success" type="submit">Edit Category</button>
                             <button class="btn btn-danger" onclick="window.location.href='{{ route('categories.index') }}'" type="button">Cancel</button>
                         </div>
                     </form>

@@ -69,7 +69,7 @@ class PhotosController extends Controller
         $photo->exif_lng = $request->get('exif_lng');
         $photo->save();
 
-        return redirect()->route('photos.index', ['category_id' => $photo->category_id])->with('success', 'Photo has been uploaded successfully.');
+        return redirect()->route('photos.index', [$photo->category_id])->with('success', 'Photo has been uploaded successfully.');
     }
 
     public function edit($photo_id)
@@ -117,7 +117,7 @@ class PhotosController extends Controller
         $photo->exif_lng = $request->get('exif_lng');
         $photo->save();
 
-        return redirect()->route('photos.index', ['category_id' => $photo->category_id])->with('success', 'Selected photo has been updated successfully');
+        return redirect()->route('photos.index', [$photo->category_id])->with('success', 'Selected photo has been updated successfully');
     }
 
     public function temporary(Request $request) {

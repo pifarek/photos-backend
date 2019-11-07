@@ -87,7 +87,13 @@ class CategoriesController extends Controller
             'name' => ['required']
         ]);
 
+        $date = null;
+        if($request->get('date')) {
+            $date = \DateTime::createFromFormat('d/m/Y', $request->get('date'));
+        }
+
         $category->name = $request->get('name');
+        $category->date = $date;
         $category->save();
 
         return redirect()->route('categories.index')->with('success', 'Selected category has been updated successfully');
