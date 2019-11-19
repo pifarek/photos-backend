@@ -22,6 +22,13 @@ class ApiController extends Controller
         return CategoryResource::collection($categories);
     }
 
+    public function category($category_id)
+    {
+        $category = Category::find($category_id);
+
+        return new CategoryResource($category);
+    }
+
     /**
      * @param $category_id
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection

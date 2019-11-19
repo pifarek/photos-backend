@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,8 +12,11 @@ use Illuminate\Http\Request;
 */
 
 Route::get('categories', 'Api\ApiController@categories');
+Route::get('category/{category_id}', 'Api\ApiController@category');
+
 Route::get('photos/{category_id}', 'Api\ApiController@photos');
 Route::get('photo/{photo_id}', 'Api\ApiController@photo');
+
 Route::get('next/{photo_id}', 'Api\ApiController@next');
 Route::get('prev/{photo_id}', 'Api\ApiController@prev');
 Route::get('random', 'Api\ApiController@random');
