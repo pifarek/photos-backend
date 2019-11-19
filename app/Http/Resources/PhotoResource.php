@@ -16,7 +16,7 @@ class PhotoResource extends JsonResource
     {
         return [
             'id' =>             $this->id,
-            'category_id' =>    $this->category_id,
+            'categoryId' =>     $this->category_id,
             "filename" =>       $this->filename,
             "exifMake" =>       $this->exif_make,
             "exifModel" =>      $this->exif_model,
