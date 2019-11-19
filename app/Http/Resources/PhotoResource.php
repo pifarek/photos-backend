@@ -15,17 +15,17 @@ class PhotoResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
-            'category_id' => $this->category_id,
-            "filename" => $this->filename,
-            "exif_make" => $this->exif_make,
-            "exif_model" => $this->exif_model,
-            "exif_aperture" => $this->exif_aperture,
-            "exif_iso" => $this->exif_iso,
-            "exif_speed" => $this->exif_speed,
-            "exif_lat" => $this->exif_lat,
-            "exif_lng" => $this->exif_lng,
-            'category' => $this->category
+            'id' =>             $this->id,
+            'category_id' =>    $this->category_id,
+            "filename" =>       $this->filename,
+            "exifMake" =>       $this->exif_make,
+            "exifModel" =>      $this->exif_model,
+            "exifAperture" =>   $this->exif_aperture,
+            "exifIso" =>        $this->exif_iso,
+            "exifSpeed" =>      $this->exif_speed,
+            "exifLat" =>        $this->exif_lat,
+            "exifLng" =>        $this->exif_lng,
+            'category' =>       $this->category
         ];
     }
 }
