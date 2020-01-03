@@ -27,5 +27,6 @@ mix.styles([
     'node_modules/font-awesome/css/font-awesome.css',
     'node_modules/blueimp-file-upload/css/jquery.fileupload.css',
     'node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.css',
+    'node_modules/font-awesome/css/font-awesome.css',
     'public/assets/css/default.css',
 ], 'public/assets/css/build.css');
