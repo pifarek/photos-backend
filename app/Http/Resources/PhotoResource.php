@@ -18,6 +18,7 @@ class PhotoResource extends JsonResource
             'id' =>             $this->id,
             'categoryId' =>     $this->category_id,
             "filename" =>       $this->filename,
+            'isCover' =>        (bool) $this->is_cover,
             "exifMake" =>       $this->exif_make,
             "exifModel" =>      $this->exif_model,
             "exifAperture" =>   $this->exif_aperture,

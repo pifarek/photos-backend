@@ -32,4 +32,9 @@ Route::group(['middleware' => 'auth'], function() {
     Route::group(['prefix' => 'categories'], function() {
         Route::get('json/remove/{category_id}', 'CategoriesController@remove');
     });
+
+    // Settings
+    Route::group(['prefix' => 'settings', 'namespace' => 'Settings'], function(){
+       Route::get('list', 'ApiController@clients')->name('api.clients');
+    });
 });
