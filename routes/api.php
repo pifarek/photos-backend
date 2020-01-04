@@ -20,6 +20,8 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function(){
         Route::get('get/{category_id}', 'CategoriesController@get');
         // Create a new category
         Route::post('create', 'CategoriesController@create');
+        // Update category
+        Route::post('update/{category_id}', 'CategoriesController@update');
         // Remove a selected category
         Route::delete('delete/{category_id}', 'CategoriesController@delete');
     });

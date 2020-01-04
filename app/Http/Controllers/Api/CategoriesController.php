@@ -43,6 +43,34 @@ class CategoriesController extends Controller
     }
 
     /**
+     * Update selected category
+     * @param Request $request
+     * @param $category_id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function update(Request $request, $category_id) {
+
+        $category = Category::find($category_id);
+
+        if (!$category) {
+            return response()->json(['error' => 'Category not found.'], 400);
+        }
+
+        $name = $request->get('name');
+        $date = $request->get('date');
+
+        if($name && (bool) strtotime($date)) {
+            $category->name = $name;
+            $category->date = date('Y-m-d H:i:s', strtotime($date));
+            $category->save();
+
+            return response()->json(['status' => 'ok']);
+        }
+
+        return response()->json(['error' => 'Submit valid data.'], 400);
+    }
+
+    /**
      * Delete selected category
      * @param $category_id int
      * @return json
