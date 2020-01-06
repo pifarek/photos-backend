@@ -16,6 +16,17 @@ class PhotosController extends Controller
         return PhotoResource::collection($photos);
     }
 
+    public function latest(Request $request) {
+        $limit = (int) $request->get('limit', 9);
+        if ($limit > 27) {
+            $limit = 27;
+        }
+
+        $photos = Photo::orderBy('id', 'desc')->limit($limit)->get();
+
+        return PhotoResource::collection($photos);
+    }
+
     public function upload(Request $request) {
 
         $category_id = $request->get('category_id');

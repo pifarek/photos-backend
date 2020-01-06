@@ -28,6 +28,8 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function(){
 
     // Photos
     Route::group(['prefix' => 'photos'], function() {
+        // Get the latest photos
+        Route::get('latest', 'PhotosController@latest');
         // Upload photo
         Route::post('upload', 'PhotosController@upload');
         // Get photos from selected category
