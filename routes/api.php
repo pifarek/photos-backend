@@ -6,13 +6,14 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function(){
         // Get the categories
         Route::get('list', 'CategoriesController@list');
         // Get the category
-        Route::get('get/{category_id}', 'CategoriesController@get');
+        Route::get('{category_id}', 'CategoriesController@get')->name('api.categories.get');
+        // Remove a selected category
+        Route::delete('{category_id}', 'CategoriesController@delete')->name('api.categories.delete');;
         // Create a new category
         Route::post('create', 'CategoriesController@create');
         // Update category
         Route::post('update/{category_id}', 'CategoriesController@update');
-        // Remove a selected category
-        Route::delete('delete/{category_id}', 'CategoriesController@delete');
+
     });
 
     // Photos
