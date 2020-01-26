@@ -61,8 +61,8 @@ class PhotosController extends Controller
         $photo->exif_aperture = $exif['aperture'];
         $photo->exif_iso =      $exif['iso'];
         $photo->exif_speed =    $exif['speed'];
-        $photo->exif_lat =      isset($exif['coords']) ?? $exif['coords']['latitude'];
-        $photo->exif_lng =      isset($exif['coords']) ?? $exif['coords']['longitude'];
+        $photo->exif_lat =      isset($exif['coords']) ? $exif['coords']['latitude'] : NULL;
+        $photo->exif_lng =      isset($exif['coords']) ? $exif['coords']['longitude'] : NULL;
         $photo->save();
 
         return response()->json(['status' => 'ok', 'filename' => $filename]);
