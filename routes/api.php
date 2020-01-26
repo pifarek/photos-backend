@@ -12,7 +12,7 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function(){
         // Update category
         Route::post('update/{category_id}', 'CategoriesController@update');
         // Remove a selected category
-        Route::get('delete/{category_id}', 'CategoriesController@delete');
+        Route::delete('delete/{category_id}', 'CategoriesController@delete');
     });
 
     // Photos
@@ -24,7 +24,7 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function(){
         // Get photos from selected category
         Route::get('list/{category_id}', 'PhotosController@list');
         // Remove photo
-        Route::get('delete/{photo_id}', 'PhotosController@delete');
+        Route::delete('delete/{photo_id}', 'PhotosController@delete');
         // Set as cover
         Route::get('cover/{photo_id}', 'PhotosController@cover');
     });
