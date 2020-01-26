@@ -8,7 +8,7 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function(){
         // Get the category
         Route::get('{category_id}', 'CategoriesController@get')->name('api.categories.get');
         // Remove a selected category
-        Route::delete('{category_id}', 'CategoriesController@delete')->name('api.categories.delete');;
+        Route::delete('{category_id}', 'CategoriesController@delete')->name('api.categories.delete');
         // Create a new category
         Route::post('create', 'CategoriesController@create');
         // Update category
