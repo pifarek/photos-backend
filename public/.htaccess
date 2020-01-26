@@ -5,6 +5,10 @@
 
     RewriteEngine On
 
+    <Limit GET POST PUT DELETE>
+       Allow from all
+    </Limit>
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]

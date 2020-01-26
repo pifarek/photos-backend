@@ -25,7 +25,7 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function(){
         // Get photos from selected category
         Route::get('list/{category_id}', 'PhotosController@list');
         // Remove photo
-        Route::delete('delete/{photo_id}', 'PhotosController@delete');
+        Route::delete('{photo_id}', 'PhotosController@delete');
         // Set as cover
         Route::get('cover/{photo_id}', 'PhotosController@cover');
     });
