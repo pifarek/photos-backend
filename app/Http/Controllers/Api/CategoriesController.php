@@ -22,6 +22,10 @@ class CategoriesController extends Controller
     {
         $category = Category::find($category_id);
 
+        if(!$category) {
+            return response()->json(['error' => 'Category not found.'], 400);
+        }
+
         return new CategoryResource($category);
     }
 
