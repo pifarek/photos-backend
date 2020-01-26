@@ -75,12 +75,15 @@ class CategoriesController extends Controller
      * @param $category_id int
      * @return json
      */
-    public function delete($category_id) {
+    public function delete($category_id)
+    {
         $category = Category::find($category_id);
         if($category) {
             $category->delete();
 
             return response()->json(['status' => 'ok']);
         }
+
+        return response()->json(['status' => 'ok']);
     }
 }
