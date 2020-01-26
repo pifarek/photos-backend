@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
-
 Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function(){
     // Categories
     Route::group(['prefix' => 'categories'], function(){
@@ -23,7 +12,7 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function(){
         // Update category
         Route::post('update/{category_id}', 'CategoriesController@update');
         // Remove a selected category
-        Route::delete('delete/{category_id}', 'CategoriesController@delete');
+        Route::get('delete/{category_id}', 'CategoriesController@delete');
     });
 
     // Photos
@@ -35,7 +24,7 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function(){
         // Get photos from selected category
         Route::get('list/{category_id}', 'PhotosController@list');
         // Remove photo
-        Route::delete('delete/{photo_id}', 'PhotosController@delete');
+        Route::get('delete/{photo_id}', 'PhotosController@delete');
         // Set as cover
         Route::get('cover/{photo_id}', 'PhotosController@cover');
     });
